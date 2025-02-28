@@ -1,0 +1,94 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+%标题
+\chapter{唯一分解}
+	\section{$\Z$上的唯一分解}
+		\subsection{整除和素数}
+			作为数论的基础，我们需要先研究素数。
+			\begin{defn}{整除}{}
+				设$a,b \in \Z,\exists c \in \Z,\text{s.t. }ac=b$，那么我们称$a$整除$b$，记作$a \mid b$；
+				
+				否则，我们称$a$不整除$b$，记作$a \nmid b$
+			\end{defn}
+			有了整除的定义，我们就可以定义素数的概念：
+			\begin{defn}{素数}{}
+				设$p \in \N,p \geqslant 2$，如果$a \mid p,a \in \N \Leftrightarrow a = 1 \vee a = p$
+				
+				那么我们称$p$是一个素数，否则称其是个合数。
+			\end{defn}
+			我们研究素数的第一个目的是一个比较显然的事实：所有大于1的整数都能写成若干素数的乘积。我们还将看到，这个分解是唯一的。
+			
+			我们先引入以下概念。
+			\begin{defn}{素数的指数}{}
+				设有素数$p \in \N$和$n \in \Z$
+				
+				如果$p \mid n$，那么我们记满足$p^k \mid n$的最大正整数$k$为$ord_p n$，称为$p$的指数
+				
+				特别地，如果$p \nmid n$，我们定义$ord_p n = 0$；如果$n =0$，我们定义$ord_p n = +\infty$
+			\end{defn}
+		\subsection{算数基本定理}
+			我们先给出一个基本引理，它证明了可分解但是没有证明唯一性。
+			\begin{lemma}{大于1的正整数的可分解性}{}
+				每一个大于$1$的正整数都可以写成有限个素数的乘积。
+			\end{lemma}
+			\begin{proof}
+				假设命题不成立。于是一定有一个$N$为不满足此性质的最小正整数。
+				
+				首先，$N$不可能是素数，否则它就可以写成自身，与假设矛盾。
+				
+				于是，一定$\exists m,n,1<m < N,1<n<N$，满足$mn=N$
+				
+				那么，$m,n$也不能满足命题所说的性质，否则$N$也就有了这一性质，与假设矛盾。
+				
+				但是，这样$N$就不再是最小的满足此性质的正整数了。与假设矛盾，命题得证
+			\end{proof}
+			接下来我们证明唯一性。为了证明这一部分，我们将提出一系列全新概念，包括互素、最大公因数等。
+			\begin{defn}{$\Z$上生成的子模}{}
+				我们定义：
+				
+				$\Z \text{-span} (a_1,\cdots,a_n) := \{a_1\cdot q_1 +\cdots+a_n\cdot q_n | q_i \in \Z\}$
+				
+				称为$\Z$上由$a_1,\cdots,a_n$生成的子模
+			\end{defn}
+			我们先证明一个引理：由两个数在整数集上生成的子模，其实也可以只由一个数生成。
+			\begin{lemma}{}{}
+				对于$\Z\text{-span}(a,b),\exists c \in \Z,\text{s.t. }\Z\text{-span}(a,b)=\Z\text{-span}(c)$
+			\end{lemma}
+			\begin{proof}
+				如果$a=b=0$，那么命题是平凡的。
+				
+				如果$a,b$中至少有一者不为$0$，那么一定能找到$\Z\text{-span}(a,b)$的最小正元素$c$。
+				
+				由定义易知，$\Z\text{-span}(c) \subseteq \Z\text{-span}(a,b)$
+				
+				现在取$\forall d \in \Z\text{-span}(a,b)$，那么一定$\exists q,r \in \Z,0 \leqslant r \leqslant c,d=qc+r$
+				
+				那么$r=d-qc$，因为$c,d\in \Z\text{-span}(a,b)$，于是$r \in \Z\text{-span}(a,b)$
+				
+				于是一定有$r=0$因为我们已经假设$c$是$\Z\text{-span}(a,b)$最小的正整数，而$0 \leqslant r$。
+				
+				那么$d=qc \in \Z\text{-span}(a,b)$，于是$\Z\text{-span}(a,b) \subseteq \Z\text{-span}(c)$，于是命题得证。
+			\end{proof}
+			这个数实际上就是两个数的最大公因数，我们先给出定义，随后给出证明
+			\begin{defn}{公因数}
+				对于$a,b \in \Z$，如果$c\in\Z$满足$c\mid a,c\mid b$，那么称$c$是$a,b$的最大公因数。
+				
+				如果又有：对于任何$a,b$的公因数$d,d \mid c$，那么称$c$是$a,b$的最大公因数
+			\end{defn}
+			\begin{lemma}{}{}
+				如果$\Z\text{-span}(a,b)=\Z\text{-span}(c)$，那么$c$是$a,b$的最大公因数
+			\end{lemma}
+			\begin{proof}
+				取$a,b$的一个公因数$d\mid a,d\mid b$，由$\Z\text{-span}(a,b)$的定义可知，$\forall e \in \Z\text{-span}(a,b),d \mid e$
+				
+				那么$\forall e \in \Z\text{-span}(c),d \mid e$，那么$d \mid c$，命题得证。
+			\end{proof}
+\ifx\allfiles\undefined
+\end{document}
+\fi

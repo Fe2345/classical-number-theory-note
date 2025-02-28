@@ -1,0 +1,119 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\setCJKmainfont{SimSun}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+	% \input{../config/cover}
+	\else
+	\fi
+	%标题
+	\chapter{附录}
+	这一部分中，对于正文中因为逻辑结构无法提及的部分，进行补充。包括特殊函数，有趣的数学概念，一些命题的全新解法，以及难以推导的公式
+	证明可能使用复分析、实分析、泛函等超纲内容
+	%--------------------正文---------------------------
+	
+	%附录：不定积分初等性判定
+	\section{原函数初等性的判定方法}
+		\subsection{切比雪夫定理}
+			\begin{them}{切比雪夫定理}{}
+				设$m,n,p\in \Q-\{0\}$，那么以下积分
+				\begin{equation}
+					\int x^m(a+bx^n)^p \d x
+				\end{equation}
+				初等的充要条件是：$p,\frac{m+1}{n},\frac{m+1}{n}+p$中至少有一个为整数
+			\end{them}
+		\subsection{刘维尔定理}
+			在介绍刘维尔定理前，需要先介绍一些微分代数的概念：
+			
+			首先我们扩展微分的概念。我们将满足类似乘法、除法微分性质的泛函也称为微分。
+			
+			先引入微分域及其常数域
+			\begin{para}{0}
+				\point{微分域}
+					\begin{defn}{微分域}{}
+						一个由函数组成的域$F$及其上的一个算子$\delta:F \rightarrow F$，如果$\forall f,g \in F$有：
+						
+						$\ding{172} \delta(f+g) = \delta(f)+\delta(g)$
+						
+						$\ding{173} \delta(fg) = \delta(f)\cdot g+f \cdot \delta(g)$
+						
+						那么称$(F,\delta)$是一个微分域
+					\end{defn}
+					容易验证$\delta$是线性算子，于是我们有时简记$\delta(f)$为$\delta f$
+					\begin{defn}{微分域的常数域}{}
+						微分域$(F,\delta)$的常数域定义为：
+						
+						$Con (F,\delta) =\{f \in F| \delta f = 0\}$
+					\end{defn}
+					同时定义域的扩张：
+					\begin{defn}{域的扩张}{}
+						设$F,K$是两个域，并且$K$是满足$F \subseteq K$且包含$h \subseteq K$的最小域（即$K$是任何满足上述条件的域的子域），记作$K = F(h)$
+					\end{defn}
+					作为接下来内容的预备，我们先验证那些显然的微分性质：
+					\begin{proposition}
+						$\delta C = 0$，其中$C$为常数 
+					\end{proposition}
+					\begin{proof}
+						只需要验证$\delta 1 = 0$
+						
+						那么有：$\delta (1\cdot 1) = \delta 1 \cdot 1 + 1 \cdot \delta 1=2\delta 1$
+						
+						于是有$\delta 1 = 0$，利用微分的线性即得证。
+					\end{proof}
+					\begin{proposition}
+						$\delta \left(\frac{f}{g}\right)=\frac{\delta f \cdot g - f \delta g}{g^2}$
+					\end{proposition}
+					\begin{proof}
+						首先推导$\delta \left(\frac{1}{g}\right)$
+						
+						$\because \delta 1 = \delta \left(g \cdot \frac{1}{g}\right) = 0$
+						
+						$\Rightarrow \delta g \frac{1}{g}+g \delta \left(\frac{1}{g}\right)=0$
+						
+						$\Rightarrow \delta \left(\frac{1}{g}\right) = -\frac{\delta g}{g^2}$
+						
+						于是$\delta \left(\frac{f}{g}\right) = \delta \left(f \cdot \frac{1}{g}\right)$
+						
+						$=\delta f \frac{1}{g}-f \frac{\delta g}{g^2} = \frac{\delta f \cdot g - f \delta g}{g^2}$
+					\end{proof}
+				\point{微分域的初等扩张}
+					接下来讨论什么是“初等”的函数。
+					\begin{defn}{微分域的初等扩张}{}
+						设$(F,\delta),(K,\delta)$是两个微分域，$h \in K$并且$K = F(h)$，那么：
+						
+						$\ding{172}$如果存在$F$中的一个多项式$p(x) \in F[x]$，有$p(h)=0$，那么称$h$是$F$的一个代数元素，$K=F(h)$是$F$的单代数扩张
+						
+						$\ding{173}$如果存在$F$中的一个函数$f$，使得$\delta h = \frac{\delta f}{f}$，那么称$K=F(h)$是$F$的单对数扩张
+						
+						$\ding{173}$如果存在$F$中的一个函数$f$，使得$\frac{\delta h}{h} = \delta f$，那么称$K=F(h)$是$F$的单指数扩张。
+						
+						单对数扩张和单指数扩张统称为单超越扩张，其对应的$h$称为$F$的超越元素；以上三种扩张统称为单初等扩张
+						
+						有限次初等扩张的复合称为初等扩张
+					\end{defn}
+					我们也可以在此以另外的方式定义出初等函数：
+					\begin{defn}{初等函数}{}
+						如果函数$f$处于微分域$\left(C(x),\frac{\d}{\d x}\right)$的某个初等扩张中，那么称$f$是一个初等函数
+					\end{defn}
+					接下来就可以给出刘维尔定理了。
+				\point{刘维尔定理}
+					\begin{them}{刘维尔定理}
+						设$(F,\delta),(K,\delta)$是两个微分域，$K$是$F$的初等扩张，并且$Con(F,\delta)=Con(K,\delta)$，且$\forall f \in F,\exists g \in K,s.t.\delta g = f$
+						
+						那么一定$\exists c_1,\cdots,c_n \in Con(F,\delta),u_1,\cdots,u_n,v \in F$，使得
+						\begin{equation}
+							g = \sum\limits_{i=1}^{n} c_i \ln (u_i)+v
+						\end{equation}
+					\end{them}
+			\end{para}
+			
+			
+	%附录：超越积分的特殊解法
+	\section{一些超越积分的特殊解法}
+		\subsection{Direchlet积分}
+		
+	
+	\ifx\allfiles\undefined
+\end{document}
+\fi
