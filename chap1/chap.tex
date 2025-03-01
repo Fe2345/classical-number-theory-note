@@ -79,7 +79,7 @@
 			\begin{defn}{公因数}
 				对于$a,b \in \Z$，如果$c\in\Z$满足$c\mid a,c\mid b$，那么称$c$是$a,b$的最大公因数。
 				
-				如果又有：对于任何$a,b$的公因数$d,d \mid c$，那么称$c$是$a,b$的最大公因数
+				如果又有：对于任何$a,b$的公因数$d,d \mid c$，那么称$c$是$a,b$的最大公因数，记作$(a,b)$
 			\end{defn}
 			\begin{lemma}{}{}
 				如果$\Z\text{-span}(a,b)=\Z\text{-span}(c)$，那么$c$是$a,b$的最大公因数
@@ -88,6 +88,76 @@
 				取$a,b$的一个公因数$d\mid a,d\mid b$，由$\Z\text{-span}(a,b)$的定义可知，$\forall e \in \Z\text{-span}(a,b),d \mid e$
 				
 				那么$\forall e \in \Z\text{-span}(c),d \mid e$，那么$d \mid c$，命题得证。
+			\end{proof}
+			最大公因数是$1$的情况比较特别，我们称之为互素
+			\begin{defn}{互素}{}
+				如果$a,b$的公因数仅有$1,-1$，那么我们称$a,b$互素，记作$(a,b)=1$
+			\end{defn}
+			互素有以下显然的性质：
+			\begin{lemma}{}{}
+				$(a,b)=1 \Leftrightarrow \exists r,q \in \Z,\text{s.t. }ra+qb=1$
+			\end{lemma}
+			\begin{proof}
+				只需注意到$(a,b)=1 \Leftrightarrow \Z\text{-span}(a,b)=\Z\text{-span}(1)$，于是命题得证。
+			\end{proof}
+			\begin{lemma}{}{}
+				若$a \mid bc,(a,b)=1$，那么$a\mid c$
+			\end{lemma}
+			\begin{proof}
+				因为$(a,b)=1$，所以$\exists r,q\in \Z,\text{s,t. }ra+qb=1$
+				
+				所以$rac+qbc=c$，但是我们知道$a\mid rac,a\mid qbc$，于是$a\mid c$
+			\end{proof}
+			\begin{lemma}{}{}
+				如果$p$是一个素数，$p \mid bc$，那么$p \mid b,p\mid c$至少有一者成立。
+			\end{lemma}
+			\begin{proof}
+				因为$p$是一个素数，所以$(p,b)$或者为$1$，或者为$p$。
+				
+				如果$(p,b)=p$那么一定有$p \mid b$，命题成立；
+				
+				如果$(p,b)=1$，那么$p,b$的公因数仅有$1,-1$，那么必定有$p \mid c$
+			\end{proof}
+			最后，为了指出唯一分解中素数的指数，我们给出最后一个引理。
+			\begin{lemma}{}{}
+				如果$p$为素数，$a,b\in \Z$，那么$ord_p ab=ord_p a + ord_p b$
+			\end{lemma}
+			\begin{proof}
+				首先处理一些特殊情形：
+				
+				如果$a,b$中至少一者为$0$，不妨假设$a=0$，那么有$+\infty = +\infty + ord_p b$，因为$ord_p b$或者有限，或者为正无穷，于是命题成立；
+				
+				如果$p \nmid ab,p\nmid a,p\nmid b$，那么有$0=0+0$，命题成立；
+				
+				如果$p \mid ab$，但是$p \mid a$和$p \mid b$仅一者成立，那么不妨假设$p \nmid a$，于是依上面的引理，有$p \mid b$
+				
+				假设$ord_p b = n$，于是$\exists c,b=c\cdot p^n,p \nmid c$
+				
+				代入得：$ab=p^n\cdot (ac)$，但是$p \nmid a,p\nmid c$，那么$p \nmid ac$，即$ord_p ab=n$，于是$ord_p ab = 0+ ord_p b$，命题成立。
+				
+				最后假设$p \mid ab,p \mid a,p \mid b$，设$ord_p a = m,ord_p b = n$，于是$\exists c,d,a = c\cdot p^m,b=d\cdot p^n,p \nmid c,p\nmid d$
+				
+				那么$ab=(cd)\cdot p^{m+n}$，但是$p \nmid cd$，于是有$ord_p ab=ord_p a + ord_p b$，命题成立。
+			\end{proof}
+			至此，我们可以开始证明算数基本定理了。
+			\begin{them}{算数基本定理}{}
+				$\forall n \in \Z,n \neq 0$
+				
+				\begin{equation}
+					n = (\text{sgn } n) \prod_{p} p^{ord_p |n|}
+				\end{equation}
+				其中求积下标$p$对全体素数求积
+			\end{them}
+			\begin{proof}
+				先对$n > 1$考虑，此时有$n=\prod_{p} p^{a_p}$,其中$a_p$是未知的。
+				
+				取任意一个素数$q$，那么有$ord_q n=\sum\limits_{p} a_p\cdot ord_q (p)$
+				
+				只需注意到如果$q \neq p,ord_q (p)=0$，即得$a_q = ord_p (q)$，于是此情形下命题成立。
+				
+				对于$n=1$的情形，$ord_p (1)=0$恒成立，于是命题也成立。
+				
+				$n <0$的情形，在已经证明了上述事实后是显然的。 
 			\end{proof}
 \ifx\allfiles\undefined
 \end{document}
