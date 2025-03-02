@@ -159,6 +159,183 @@
 				
 				$n <0$的情形，在已经证明了上述事实后是显然的。 
 			\end{proof}
+	\section{$K[x]$上的唯一分解}
+	\section{主理想整环上的唯一分解}
+		\subsection{主理想整环}
+			\begin{defn}{主理想整环}{}
+				设$R$是一个交换环，如果它的任何一个理想$I \subseteq R$都是主理想，即
+				
+				$\exists c,I = (c) = \{rc | c \in R\}$
+				
+				那么我们称$R$是一个主理想整环
+			\end{defn}
+			在初等数论中，我们更多考虑的所谓欧几里得环
+			\begin{defn}{欧几里得环}{}
+				设$R$是一个交换环，如果$\exists \lambda : R-{0_R} \rightarrow \N$，称为欧几里得函数，满足
+				
+				$\forall a,b \in R,\exists c,d \in R,a = cb+d$，$d$满足$d=0$或者$\lambda (d) < \lambda (b)$
+				
+				那么称$R$是一个交换环
+			\end{defn}
+			本节中我们把主要精力放在主理想整环上，我们接下来定义主理想整环上的一系列概念
+			\begin{defn}{整除}{}
+				设$R$是一个主理想整环，$a,b\in R$，如果$\exists c \in R,ac = b$，那么称$a$整除$b$，记作$a \mid b$
+				
+				否则，称$a$不整除$b$，记作$a \nmid b$
+			\end{defn}
+			这个定义也可以写成一个等价形式：$(b) \subseteq (a)$
+			\begin{defn}{不可约元}{}
+				主理想整环$R$中的元素$a$如果满足：
+				
+				如果$b \mid a$，那么或者$b$可逆，或者$a$与$b$相伴，那么我们称$a$是$R$中的不可约元
+			\end{defn}
+			\begin{defn}{素元}{}
+				主理想整环$R$中的元素$p$如果满足
+				
+				$p \mid ab \Rightarrow p \mid a \vee n \mid b$，
+				
+				那么称$p$是$R$上的素元
+			\end{defn}
+			\begin{defn}{公因子}{}
+				主理想整环$R$中的元素$a,b$，如果$c \in R$满足$c \mid a,c\mid b$，那么称$c$是$a,b$的公因子；
+				
+				如果还满足：任意$a,b$的公因子$d,d\mid c$，那么称$c$是$a,b$的最大公因子，记作$(a,b)=c$
+			\end{defn}
+			\begin{defn}{互素}{}
+				如果$(a,b)=c \Leftrightarrow c \text{可逆}$，那么称$a,b$互素。
+			\end{defn}
+		\subsection{主理想整环的唯一分解定理}
+			\begin{proposition}
+				任何一个欧几里得环都是主理想子环
+			\end{proposition}
+			\begin{proof}
+				设$R$是一个欧几里得环，取$R$上的任意一个理想$I \subseteq R$
+				
+				考虑集合$S = \{\lambda (k)|k \in I,k \neq 0\}$，取其中的元素$a$满足$\forall b \in S,\lambda (a) \leqslant \lambda (b)$。
+				
+				因为$a \in I$，按照理想的定义一定有$(a) \subseteq I$，我们接下来证明相反方向的式子。
+				
+				再取$b \in I$，那么$\exists c,d \in I,b=ca+d$
+				
+				现在假设$d=0$，那么有$b=ca$，$I \subseteq (a)$自然成立
+				
+				如果$d \neq 0$，那么就有$\lambda (d) <\lambda (a)$，但是我们本来就假设$\lambda (a)$应该是所有$\lambda (k) ,k\neq 0$中最小的，矛盾。
+				
+				于是命题得证
+			\end{proof}
+			\begin{proposition}
+				主理想整环中的任何两个元素$a,b \in R$，
+				
+				$c = (a,b)$都存在，并且有$R\text{-span}(a,b) = (c)$
+			\end{proposition}
+			\begin{proof}
+				显然，$R\text{-span}(a,b)$也是$R$的一个理想，于是$\exists c \in R,\text{s.t. } R\text{-span}(a,b)= (c)$
+				
+				那么有$(a) \subseteq (c),(b)\subseteq (c)$，于是$c\mid a,c\mid b$，即$c$是$a,b$的公因数
+				
+				现在假设$d \mid a,d\mid b$，那么$(a) \subseteq (d),(b)\subseteq (d)$
+				
+				于是一定有$R\text{-span}(a,b) \subseteq (d)$，即$(c) \subseteq (d)$，那么$d\mid c$，于是命题得证。
+			\end{proof}
+			\begin{corollary}{}{}
+				如果$a,b$互素，那么$R\text{-span}(a,b)=R$
+			\end{corollary}
+			\begin{proof}
+				如果$a,b$互素，那么$(a,b)=1$，但是$(1)=R$，于是命题得证。
+			\end{proof}
+			\begin{corollary}{}{}
+				不可约元$p$同时也是素元
+			\end{corollary}
+			\begin{proof}
+				只需证明$p \mid ab,p \nmid a \Rightarrow p \mid b$
+				
+				因为$p$不可约，所以$p$仅有可逆元以及与$p$相伴的元素为因子
+				
+				但是$p \nmid a$，那么一定有$R\text{-span}(p,a)=1$，于是$R\text{-span}(pb,ab)=(b)$
+				
+				又因为$p \mid pb,p\mid ab$，所以$(pb)\subseteq (p),(ab)\subseteq (p)$
+				
+				$\Rightarrow R\text{-span}(pb,ab) \subseteq (p) \Rightarrow (b) \subseteq (p) \Rightarrow p \mid b$，于是命题得证
+			\end{proof}
+			\begin{lemma}{}{}
+				取一个主理想链$(a_1)\subseteq (a_2) \subseteq \cdots \subseteq (a_i) \subseteq \cdots$
+				
+				那么，一定$\exists k,\forall i \in \N,(a_k)=(a_{k+i})$，也就是说这个链在某一元素开始到达极限
+			\end{lemma}
+			\begin{proof}
+				设$I = \bigcup_{i=1}^{\infty} (a_i)$，那么$\exists a ,I=(a)$
+				
+				于是一定能找到一个$k,a \in (a_k)$，于是一定有$(a) \subseteq (a_k) \Rightarrow I \subseteq (a_k)$，那么命题得证
+			\end{proof}
+			\begin{proposition}
+				主理想整环$R$中的每一个非零不可逆元素都可以写成一系列不可约元的乘积
+			\end{proposition}
+			\begin{proof}
+				取$a \in R$，$a$非零且不可逆。我们首先证明$a$可被不可约元整除。
+				
+				假设$a$不可约，那证明完毕；如果可约，那么有$a = a_1 b_1$，我们如此拆分$a_i = a_{i+1}b_{i+1}$，如果有一步中$a_{n}$不可约，那么证明完毕
+				
+				如果找不到这样的一不，那么按照整除的定义，有$(a) \subseteq (a_1) \subseteq \cdots \subseteq (a_k) \subseteq \cdots$，按照前面的引理，
+				
+				一定有一个$k$，$\forall i \in \N,(a_k)=(a_{k+i})$，那么其实$a_k$就不可约，这样证明就完成了。
+				
+				现在证明它可以写成一系列不可约元的乘积。
+				
+				如果$a$不可约，那么命题成立；如果并非，有$a = p_1 c_1$，其中$p_1$不可约，我们如此不断拆分$c_i = p_{i+1}c_{i+1}$，如果有一步中$c_{n}$不可约，那么命题成立
+				
+				如果找不到这样的一步，那么按照整除的定义，有$(a) \subseteq (c_1) \subseteq \cdots \subseteq (c_k) \subseteq \cdots$，按照前面的引理，
+				
+				一定有一个$k$，$\forall i \in \N,(c_k)=(c_{k+i})$，那么其实$c_k$就不可约，这样证明就完成了。
+			\end{proof}
+			\begin{lemma}{}{}
+				设$p \in R$是一个素元，$a \in R,a \neq 0$，那么$\exists n \in \N,p^n \mid a,p^{n+1}\nmid a$
+			\end{lemma}
+			\begin{proof}
+				假设命题不成立，那么对于$\forall m \in N,p^m \mid a$。
+				
+				即，$\exists b_m,a = p^m b_m$
+				
+				因为$a = p^m b_m=p^{m+1} b_m$，所以$p b_{m+1} = b_m$，于是有$(b_0) \subseteq \cdots \subseteq (b_k) \subseteq \cdots$，
+				
+				按照引理，一定有一个$k$，$\forall i \in \N,(b_k)=(b_{k+i})$，这和$p$是素元的前提矛盾，于是命题得证。
+			\end{proof}
+				\begin{lemma}{}{}
+				如果$p$为素元，$a,b\in R$，那么$ord_p ab=ord_p a + ord_p b$
+			\end{lemma}
+			\begin{proof}
+				首先处理一些特殊情形：
+				
+				如果$a,b$中至少一者为$0$，不妨假设$a=0$，那么有$+\infty = +\infty + ord_p b$，因为$ord_p b$或者有限，或者为正无穷，于是命题成立；
+				
+				如果$p \nmid ab,p\nmid a,p\nmid b$，那么有$0=0+0$，命题成立；
+				
+				如果$p \mid ab$，但是$p \mid a$和$p \mid b$仅一者成立，那么不妨假设$p \nmid a$，于是依上面的引理，有$p \mid b$
+				
+				假设$ord_p b = n$，于是$\exists c,b=c\cdot p^n,p \nmid c$
+				
+				代入得：$ab=p^n\cdot (ac)$，但是$p \nmid a,p\nmid c$，那么$p \nmid ac$，即$ord_p ab=n$，于是$ord_p ab = 0+ ord_p b$，命题成立。
+				
+				最后假设$p \mid ab,p \mid a,p \mid b$，设$ord_p a = m,ord_p b = n$，于是$\exists c,d,a = c\cdot p^m,b=d\cdot p^n,p \nmid c,p\nmid d$
+				
+				那么$ab=(cd)\cdot p^{m+n}$，但是$p \nmid cd$，于是有$ord_p ab=ord_p a + ord_p b$，命题成立。
+			\end{proof}
+			最后，我们证明唯一分解定理
+			\begin{them}{主理想整环的唯一分解定理}{}
+				设$R$是一个主理想子环，那么$\forall n \in R,n \neq 0$
+				\begin{equation}
+					n = u \prod_{p} p^{ord_p n}
+				\end{equation}
+				其中$u$是$R$中的可逆元，求积符号对全体不可约元求积
+			\end{them}
+			\begin{proof}
+				先对$n$不可逆考虑，此时有$n=\prod_{p} p^{a_p}$,其中$a_p$是未知的。
+				
+				取任意一个素元$q$，那么有$ord_q n=\sum\limits_{p} a_p\cdot ord_q (p)$
+				
+				只需注意到如果$q \neq p,ord_q (p)=0$，即得$a_q = ord_p (q)$，于是此情形下命题成立。
+				
+				对于$n$可逆的情形，$ord_p (n)=0$恒成立，于是命题也成立。
+			\end{proof}
 \ifx\allfiles\undefined
 \end{document}
 \fi

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.3)  2 MAR 2025 00:35
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.3)  2 MAR 2025 23:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,12 +1587,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
 86.
- [1] [2]) [3]
+ [1] [2]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 162.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 162.
+
+[3] [4] [5] [6] [7]) [8]
 \openout2 = `chap16/chap.aux'.
 
  (./chap16/chap.tex
 第二章
-) [4
+) [9
 
 
 
@@ -1604,7 +1613,7 @@ LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 第三章
 Missing character: There is no ­ (U+00AD) in font LatinModernMath-Regular/OT:sc
 ript=math;language=dflt;!
-[5
+[10
 
 
 
@@ -1614,22 +1623,22 @@ Missing character: There is no ­ (U+00AD) in font LatinModernMath-Regular/OT:sc
 ript=math;language=dflt;!
 Missing character: There is no ­ (U+00AD) in font LatinModernMath-Regular/OT:sc
 ript=math;language=dflt;!
-[6]) [7] [8] (./main.aux (./config/cover.aux) (./chap1/chap.aux)
+[11]) [12] [13] (./main.aux (./config/cover.aux) (./chap1/chap.aux)
 (./chap16/chap.aux) (./extra/extra.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A34B7B821F4751BB56D964770B7C85CD;1517.
+(rerunfilecheck)             Checksum: 3C87ED3D74097BFBD543CB003A890CC6;2043.
  ) 
 Here is how much of TeX's memory you used:
- 39570 strings out of 474773
- 874547 string characters out of 5752390
- 2242234 words of memory out of 5000000
- 60992 multiletter control sequences out of 15000+600000
- 571947 words of font info for 141 fonts, out of 8000000 for 9000
+ 39599 strings out of 474773
+ 875169 string characters out of 5752390
+ 2243236 words of memory out of 5000000
+ 61015 multiletter control sequences out of 15000+600000
+ 571979 words of font info for 145 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,13n,120p,1263b,2937s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (12 pages).
+Output written on main.pdf (17 pages).
