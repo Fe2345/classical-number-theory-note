@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.3)  2 MAR 2025 23:01
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.3)  3 MAR 2025 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1596,7 +1596,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 162.
 
-[3] [4] [5] [6] [7]) [8]
+[3] [4] [5] [6] [7]
+Missing character: There is no ， (U+FF0C) in font LatinModernMath-Regular/OT:sc
+ript=math;language=dflt;!
+) [8]
 \openout2 = `chap16/chap.aux'.
 
  (./chap16/chap.tex
@@ -1630,7 +1633,7 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3C87ED3D74097BFBD543CB003A890CC6;2043.
+(rerunfilecheck)             Checksum: 4ABBEB74824A332A0F0B1E66AFFB8E62;2124.
  ) 
 Here is how much of TeX's memory you used:
  39599 strings out of 474773

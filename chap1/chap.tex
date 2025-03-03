@@ -336,6 +336,27 @@
 				
 				对于$n$可逆的情形，$ord_p (n)=0$恒成立，于是命题也成立。
 			\end{proof}
+	\section{环\texorpdfstring{$\Z (i)$}.和\texorpdfstring{$\Z (\omega)$}.}
+		\begin{proposition}
+			$\Z (i) = \{a+bi | a,b \in \R\}$是一个欧几里得环
+		\end{proposition}
+		\begin{proof}
+			我们考虑欧几里得函数$\lambda (a+bi) = a^2+b^2$
+			
+			取$\alpha =a+bi \in \Z (i),\gamma =c+di \in \Z (i),\gamma \neq 0$，并假设$\frac{\alpha}{\gamma} = r+si,r,s \in \R$
+			
+			于是，可以选取$m,n \in \Z,|r-m| \leqslant \frac{1}{2},|s-n| \leqslant \frac{1}{2}$，并取$\sigma = m+ni$，于是$\sigma \in \Z (i)$
+			
+			那么，$\lambda (\frac{\alpha}{\gamma}-\sigma)=(r-m)^2+(s-n)^2 \leqslant \frac{1}{2}$
+			
+			取$\rho = \alpha - \gamma \delta$，那么有$\rho \in \Z (i)$，只需证明$\rho = 0 \vee \lambda (\rho) < \lambda (\gamma)$
+			
+			如果$\rho \neq 0$，那么$\lambda (\rho) = \lambda \left(\gamma (\frac{\alpha}{\gamma} - \delta)\right)$
+			
+			但是$\lambda \left((a+bi)(c+di)\right) =(ac-bd)^2+(bc+ad)^2=a^2c^2+b^2d^2-2abcd+b^2c^2+a^2d^2+2abcd=(a^2+b^2)(c^2+d^2)=\lambda(a+bi)\lambda(c+di)，$即$\lambda(mn)=\lambda(m)\lambda(n)$
+			
+			于是$\lambda(\rho)=\lambda (\gamma) \lambda ( \frac{\alpha}{\gamma} - \delta) \leqslant \frac{1}{2}\lambda (\gamma) < \lambda (\gamma)$，于是命题得证。
+		\end{proof}
 \ifx\allfiles\undefined
 \end{document}
 \fi
